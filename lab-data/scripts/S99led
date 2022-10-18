@@ -1,18 +1,23 @@
 #!/bin/sh
 #
 #
+GPIO_PINS="21 22 23 24"
 
 start() {
-	printf "Turning INIT led on: " 
-	echo 53 > /sys/class/gpio/export
-	echo "out" > /sys/class/gpio/gpio53/direction
-	echo 1 > /sys/class/gpio/gpio53/value
+	printf "Initializing GPIO leds: "
+        for LED in $GPIO_PINS; do	
+	  echo ${LED} > /sys/class/gpio/export
+	  echo "out" > /sys/class/gpio/gpio${LED}/direction
+	done
+	echo 1 > /sys/class/gpio/gpio${LED}/value
 	printf "OK\n"
 }
 
 stop() {
-	printf "Turning INIT led off: "
-	echo 53 > /sys/class/gpio/unexport
+	printf "Unexporting GPIO leds: "
+	for LED in $GPIO_PINS; do
+	  echo ${LED} > /sys/class/gpio/unexport
+	done
 	printf "OK\n" 
 }
 
