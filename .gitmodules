@@ -1,4 +1,3 @@
 [submodule "buildroot"]
 	path = buildroot
 	url = https://git.buildroot.net/buildroot
-	tag = 2022.02
