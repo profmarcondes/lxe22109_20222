@@ -1,0 +1,19 @@
+LIBFOO_VERSION = 0.1
+LIBFOO_SITE = $(call github,tpetazzoni,libfoo,v$(LIBFOO_VERSION))
+
+LIBFOO_AUTORECONF = YES
+
+LIBFOO_INSTALL_STAGING = YES
+
+LIBFOO_TARGET_EXAMPLES_BIN = libfoo-example1
+define LIBFOO_TARGET_REMOVE_EXAMPLES
+	rm -rf $(addprefix $(TARGET_DIR)/usr/bin/, $(LIBFOO_TARGET_EXAMPLES_BIN))
+endef
+LIBFOO_POST_INSTALL_TARGET_HOOKS += LIBFOO_TARGET_REMOVE_EXAMPLES
+
+ifeq ($(BR2_PACKAGE_LIBFOO_DEBUG), y)
+ LIBFOO_CONF_OPTS += --enable-debug-output
+endif
+
+
+$(eval $(autotools-package))

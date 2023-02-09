@@ -1,0 +1,24 @@
+From 8cbdc6c4cc4bbed7969c0b4c5f4deccbe9b1540d Mon Sep 17 00:00:00 2001
+From: Hugo Marcondes <hugo.marcondes@ifsc.edu.br>
+Date: Mon, 12 Dec 2022 19:53:24 -0300
+Subject: [PATCH] Fix missing <libconfig.h> include
+
+---
+ src/main.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/main.c b/src/main.c
+index 4519b69..451dd1c 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -3,6 +3,7 @@
+ #include "foo.h"
+ 
+ #if defined(USE_LIBCONFIG)
++#include <libconfig.h>
+ 
+ void load_config(int *verbose)
+ {
+-- 
+2.25.1
+

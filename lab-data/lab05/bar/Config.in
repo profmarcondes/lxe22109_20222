@@ -1,0 +1,7 @@
+config BR2_PACKAGE_BAR
+	bool "bar"
+	select BR2_PACKAGE_LIBFOO
+	help
+	  Bar useless application
+
+	  https://bootlin.com/~thomas/bar/

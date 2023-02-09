@@ -1,4 +1,8 @@
 # Place holder for load packages Config.in
-menu "Nunchuk APPS"
+menu "Labs Apps"
 	source "$BR2_EXTERNAL_LXE22109_PATH/package/ninvaders/Config.in"
+	source "$BR2_EXTERNAL_LXE22109_PATH/package/bar/Config.in"
+endmenu
+menu "Labs Libs"
+	source "$BR2_EXTERNAL_LXE22109_PATH/package/libfoo/Config.in"
 endmenu

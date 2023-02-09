@@ -1,0 +1,13 @@
+config BR2_PACKAGE_LIBFOO
+        bool "libfoo"
+        help
+		Libfoo: useless library for useless apps! ;)
+		https://github.com/tpetazzoni/libfoo/
+
+if BR2_PACKAGE_LIBFOO
+config BR2_PACKAGE_LIBFOO_DEBUG
+        bool "Enable debug print"
+        help
+           Enable debug flag on libfoo
+
+endif
